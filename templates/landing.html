@@ -1,0 +1,105 @@
+{% extends "base.html" %}
+{% block title %}Targetify — Google Maps Lead Generation{% endblock %}
+
+{% block layout %}
+<div id="snap-container">
+
+  <!-- Hero -->
+  <section id="hero" class="snap-section relative">
+    <div class="flex flex-col justify-center h-full px-40 text-[#000435] bg-[url('/static/images/hero-bg.svg')] bg-cover bg-center pt-[65px]">
+      <h1 class="w-1/3 text-6xl font-bold mb-4">Unlock Your B2B Sales Potential</h1>
+      <p class="text-xl text-gray-600 mb-10">Intelligent lead grading and outreach for faster conversions</p>
+      <div class="flex gap-4">
+        <a href="/accounts/register/" class="bg-[#22C55E] text-white px-8 py-4 rounded-lg text-lg hover:bg-green-600 font-bold inline-block shadow-xl shadow-black/20">Get Started Free</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Product -->
+  <section id="product" class="snap-section">
+    <div class="flex flex-col justify-center h-full px-40 bg-[#F5F7FA] text-[#000435]">
+      <div class="max-w-6xl mx-auto w-full">
+        <h2 class="text-4xl font-bold mb-12 text-center">How Targetify Works</h2>
+        <div class="grid md:grid-cols-4 gap-10 text-center">
+          <div class="bg-white py-12 px-4 rounded-lg shadow-md pt-16 flex flex-col items-center">
+            <i class="fa-solid fa-magnifying-glass fa-2xl mb-14"></i>
+            <h3 class="text-2xl font-semibold mb-4">Smart Lead Scoring</h3>
+            <p class="text-gray-600 mb-10">Graded leads based on relevance and engagement.</p>
+            <a href="#" class="bg-[#22C55E] text-white px-4 py-2 rounded-lg text-sm hover:bg-green-600 font-bold">Learn More</a>
+          </div>
+          <div class="bg-white py-12 px-4 rounded-lg shadow-md pt-16 flex flex-col items-center">
+            <i class="fa-solid fa-chart-area fa-2xl mb-14"></i>
+            <h3 class="text-2xl font-semibold mb-4">Performance Analytics</h3>
+            <p class="text-gray-600 mb-10">Track and analyze your lead generation.</p>
+            <a href="#" class="bg-[#22C55E] text-white px-4 py-2 rounded-lg text-sm hover:bg-green-600 font-bold">Learn More</a>
+          </div>
+          <div class="bg-white py-12 px-4 rounded-lg shadow-md pt-16 flex flex-col items-center">
+            <i class="fa-solid fa-shield fa-2xl mb-14"></i>
+            <h3 class="text-2xl font-semibold mb-4">Data Security & Privacy</h3>
+            <p class="text-gray-600 mb-10">Ensure your data is secure with our robust security.</p>
+            <a href="#" class="bg-[#22C55E] text-white px-4 py-2 rounded-lg text-sm hover:bg-green-600 font-bold">Learn More</a>
+          </div>
+          <div class="bg-white py-12 px-4 rounded-lg shadow-md pt-16 flex flex-col items-center">
+            <i class="fa-solid fa-bolt fa-2xl mb-14"></i>
+            <h3 class="text-2xl font-semibold mb-4">Automated Outreach</h3>
+            <p class="text-gray-600 mb-10">Automatically send messages to your leads.</p>
+            <a href="#" class="bg-[#22C55E] text-white px-4 py-2 rounded-lg text-sm hover:bg-green-600 font-bold">Learn More</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {% comment %} <!-- Solutions -->
+  <section id="solutions" class="snap-section">
+    <div class="flex flex-col justify-center h-full px-40 bg-white">
+      <h3 class="text-4xl font-bold text-center text-[#000435]">Solutions</h3>
+    </div>
+  </section> {% endcomment %}
+
+  <!-- Pricing -->
+  <section id="pricing" class="snap-section">
+    <div class="flex flex-col justify-center h-full px-40 max-w-6xl mx-auto py-12">
+      <h1 class="text-4xl font-bold text-center mb-2">Stop Guessing. Start Targeting.</h1>
+      <p class="text-gray-500 text-center mb-12">No hidden fees. Cancel anytime.</p>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <!-- Free -->
+        <div class="bg-white rounded-xl border p-6 flex flex-col">
+          <h2 class="text-xl font-bold mb-1">Free</h2>
+          <p class="text-3xl font-bold mb-4">€0<span class="text-sm font-normal text-gray-500">/mo</span></p>
+          <ul class="text-sm text-gray-600 space-y-2 flex-1 mb-6">
+            <li>✓ 10 leads</li><li>✓ 1 job at a time</li><li>✗ No CSV download</li>
+          </ul>
+          <a href="/accounts/register/" class="block text-center border border-[#22C55E] text-[#22C55E] py-2 rounded-lg hover:bg-green-50">Get Started</a>
+        </div>
+        <!-- Starter -->
+        <div class="bg-[#22C55E] text-white rounded-xl border p-6 flex flex-col shadow-lg">
+          <h2 class="text-xl font-bold mb-1">Starter</h2>
+          <p class="text-3xl font-bold mb-4">€19<span class="text-sm font-normal opacity-80">/mo</span></p>
+          <ul class="text-sm space-y-2 flex-1 mb-6 opacity-90">
+            <li>✓ 500 leads/month</li><li>✓ CSV download</li><li>✓ Job history</li>
+          </ul>
+          <a href="/billing/checkout/starter_monthly/" class="block text-center bg-white text-[#22C55E] py-2 rounded-lg font-medium hover:bg-green-50">Subscribe</a>
+        </div>
+        <!-- Pro -->
+        <div class="bg-white rounded-xl border p-6 flex flex-col">
+          <h2 class="text-xl font-bold mb-1">Pro</h2>
+          <p class="text-3xl font-bold mb-4">€24<span class="text-sm font-normal text-gray-500">/mo</span></p>
+          <ul class="text-sm text-gray-600 space-y-2 flex-1 mb-6">
+            <li>✓ Unlimited leads</li><li>✓ Unlimited jobs</li><li>✓ Priority processing</li>
+          </ul>
+          <a href="/billing/checkout/pro_monthly/" class="block text-center border border-[#22C55E] text-[#22C55E] py-2 rounded-lg hover:bg-green-50">Subscribe</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {% comment %} <!-- Resources -->
+  <section id="resources" class="snap-section">
+    <div class="flex flex-col justify-center h-full px-40 bg-white">
+      <h3 class="text-4xl font-bold text-center text-[#000435]">Resources</h3>
+    </div>
+  </section> {% endcomment %}
+
+</div>
+{% endblock %}

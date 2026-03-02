@@ -1,0 +1,81 @@
+{% extends "base.html" %}
+{% block title %}Job Detail - Targetify{% endblock %}
+{% block content %}
+{% if job.status == "running" or job.status == "pending" %}
+<meta http-equiv="refresh" content="10">
+{% endif %}
+
+<a href="/jobs/" class="text-sm text-gray-500 hover:text-green-600 mb-6 inline-block">← Back to dashboard</a>
+
+<div class="bg-white rounded-xl border p-6 mb-6">
+  <div class="flex justify-between items-start">
+    <div>
+      <h1 class="text-xl font-bold mb-1">{{ job.search_query }}</h1>
+      <p class="text-gray-500 text-sm">{{ job.city|default:"No location specified" }}</p>
+    </div>
+    <div>
+      {% if job.status == "pending" %}<span class="bg-yellow-100 text-yellow-800 text-sm font-medium px-3 py-1 rounded-full">Pending</span>
+      {% elif job.status == "running" %}<span class="bg-green-100 text-green-800 text-sm font-medium px-3 py-1 rounded-full">Running</span>
+      {% elif job.status == "completed" %}<span class="bg-green-100 text-green-800 text-sm font-medium px-3 py-1 rounded-full">Completed</span>
+      {% elif job.status == "failed" %}<span class="bg-red-100 text-red-800 text-sm font-medium px-3 py-1 rounded-full">Failed</span>
+      {% endif %}
+    </div>
+  </div>
+  <div class="grid grid-cols-3 gap-4 mt-6 pt-6 border-t text-center">
+    <div><p class="text-2xl font-bold text-green-600">{{ leads.count }}</p><p class="text-xs text-gray-500 mt-1">Leads found</p></div>
+    <div><p class="text-2xl font-bold text-gray-700">{{ job.max_results }}</p><p class="text-xs text-gray-500 mt-1">Target results</p></div>
+    <div><p class="text-2xl font-bold text-gray-700">{{ job.created_at|date:"d M" }}</p><p class="text-xs text-gray-500 mt-1">Created</p></div>
+  </div>
+  {% if job.status == "failed" and job.error_message %}
+  <div class="mt-4 bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded text-sm"><strong>Error:</strong> The job failed.<a href='#' class="text-red underline ml-1">Report a problem</a></div>
+  {% endif %}
+</div>
+
+{% if leads %}
+<div class="bg-white rounded-xl border overflow-hidden">
+  <div class="px-5 py-4 border-b flex justify-between items-center">
+    <h2 class="font-semibold">Leads ({{ leads.count }})</h2>
+    {% if job.status == "completed" %}
+    <a href="/jobs/{{ job.id }}/download/" class="bg-green-600 text-white text-sm px-4 py-1.5 rounded-lg hover:bg-green-700 font-medium">⬇ Download CSV</a>
+    {% endif %}
+  </div>
+  <div class="overflow-x-auto">
+    <table class="w-full text-sm">
+      <thead class="bg-gray-50 border-b">
+        <tr>
+          <th class="text-left px-5 py-3 font-medium text-gray-600">Business</th>
+          <th class="text-left px-5 py-3 font-medium text-gray-600">Phone</th>
+          <th class="text-left px-5 py-3 font-medium text-gray-600">Email</th>
+          <th class="text-left px-5 py-3 font-medium text-gray-600">Website</th>
+          <th class="text-left px-5 py-3 font-medium text-gray-600">City</th>
+        </tr>
+      </thead>
+      <tbody class="divide-y">
+        {% for lead in leads %}
+        <tr class="hover:bg-gray-50">
+          <td class="px-5 py-3 font-medium">{{ lead.business_name|default:"—" }}</td>
+          <td class="px-5 py-3 text-gray-500">{{ lead.phone|default:"—" }}</td>
+          <td class="px-5 py-3 text-gray-500">{{ lead.email|default:"—" }}</td>
+          <td class="px-5 py-3">
+            {% if lead.website %}<a href="{{ lead.website }}" target="_blank" class="text-[#22C55E] hover:underline">{{ lead.website|truncatechars:30 }}</a>
+            {% else %}<span class="text-gray-400">—</span>{% endif %}
+          </td>
+          <td class="px-5 py-3 text-gray-500">{{ lead.city|default:"—" }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</div>
+{% elif job.status == "pending" %}
+<div class="bg-white rounded-xl border p-12 text-center text-gray-400">
+  <div class="text-3xl mb-3">⏳</div><p class="font-medium text-gray-600">Job is queued</p><p class="text-sm mt-1">It will start as soon as a worker is available.</p>
+</div>
+{% elif job.status == "running" %}
+<div class="bg-white rounded-xl border p-12 text-center text-gray-400">
+  <div class="text-3xl mb-3">⚙️</div><p class="font-medium text-gray-600">Scraping in progress...</p><p class="text-sm mt-1">This page auto-refreshes every 10 seconds.</p>
+</div>
+{% else %}
+<div class="bg-white rounded-xl border p-12 text-center text-gray-400"><p class="text-sm">No leads found for this job.</p></div>
+{% endif %}
+{% endblock %}

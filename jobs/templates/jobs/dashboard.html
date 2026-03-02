@@ -1,0 +1,271 @@
+{% extends "base.html" %}
+{% block title %}Targetify — My Prospects{% endblock %}
+{% block navbar %}{% endblock %}
+{% block layout %}
+
+<!-- Dashboard Wrapper -->
+<div class="flex h-screen w-full bg-[#F8FAFC] text-slate-600 overflow-hidden">
+
+  <!-- ── SIDEBAR ──────────────────────────────────────────────────────────────── -->
+  <aside class="w-64 flex-shrink-0 flex flex-col z-20 transition-all duration-300"
+         style="background: linear-gradient(180deg, #0F172A 0%, #1E293B 100%); border-right: 1px solid rgba(255,255,255,0.06);">
+    
+    <!-- Logo Area -->
+    <div class="px-6 h-[70px] flex items-center gap-3 border-b" style="border-color: rgba(255,255,255,0.07);">
+      <div class="w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0 shadow-lg"
+           style="background: linear-gradient(135deg, #22C55E, #16A34A); box-shadow: 0 4px 14px rgba(34,197,94,0.45);">
+        <!-- Icon: Target -->
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
+      </div>
+      <span class="font-bold text-white text-[18px] tracking-tight">Targetify</span>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="flex-1 px-4 py-6 space-y-1">
+      <p class="px-3 pb-3 text-[11px] font-bold text-slate-500 uppercase tracking-widest">Main Menu</p>
+      
+      <!-- Nav Item: Dashboard -->
+      <a href="#" class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-[14px] font-medium text-slate-400 hover:text-white hover:bg-white/5 transition-all group">
+        <svg class="text-slate-500 group-hover:text-white transition-colors" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="7" height="9" x="3" y="3" rx="1"/><rect width="7" height="5" x="14" y="3" rx="1"/><rect width="7" height="9" x="14" y="12" rx="1"/><rect width="7" height="5" x="3" y="16" rx="1"/></svg>
+        Dashboard
+      </a>
+
+      <!-- Nav Item: Lead Finder -->
+      <a href="#" class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-[14px] font-medium text-slate-400 hover:text-white hover:bg-white/5 transition-all group">
+        <svg class="text-slate-500 group-hover:text-white transition-colors" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+        Lead Finder
+      </a>
+
+      <!-- Nav Item: My Prospects (Active) -->
+      <a href="#" class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-[14px] font-bold text-white transition-all shadow-sm"
+         style="background: rgba(34,197,94,0.15); border: 1px solid rgba(34,197,94,0.2);">
+        <svg class="text-emerald-400" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        My Prospects
+        <span class="ml-auto text-[10px] font-bold px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-400">128</span>
+      </a>
+
+      <!-- Nav Item: Campaigns -->
+      <a href="#" class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-[14px] font-medium text-slate-400 hover:text-white hover:bg-white/5 transition-all group">
+        <svg class="text-slate-500 group-hover:text-white transition-colors" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+        Campaigns
+      </a>
+    </nav>
+
+    <!-- Credits Widget -->
+    <div class="p-4 border-t" style="border-color: rgba(255,255,255,0.07);">
+      <div class="p-4 rounded-xl" style="background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.07);">
+        <div class="flex items-center justify-between mb-2">
+          <span class="text-[10px] font-bold text-slate-400 uppercase tracking-wider">Credits</span>
+          <svg class="text-amber-400" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+        </div>
+        <div class="text-2xl font-bold text-white tabular-nums mb-0.5">1,250</div>
+        <p class="text-[11px] text-slate-500 mb-3">remaining this month</p>
+        <div class="h-1.5 rounded-full overflow-hidden bg-white/10">
+          <div class="h-full rounded-full" style="width: 62%; background: linear-gradient(90deg, #22C55E, #16A34A);"></div>
+        </div>
+      </div>
+    </div>
+  </aside>
+
+
+  <!-- ── MAIN CONTENT ─────────────────────────────────────────────────────────── -->
+  <div class="flex-1 flex flex-col min-w-0 overflow-hidden relative">
+
+    <!-- Header -->
+    <header class="flex-shrink-0 h-[70px] bg-white flex items-center justify-between px-8 shadow-sm z-10 border-b border-slate-100">
+      
+      <!-- Left: Breadcrumbs -->
+      <div class="flex items-center gap-2 text-sm">
+        <span class="text-slate-400 font-medium hover:text-slate-600 cursor-pointer">Home</span>
+        <svg class="text-slate-300" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+        <span class="font-bold text-slate-800">My Prospects</span>
+      </div>
+
+      <!-- Center: Active Job Pill -->
+      <div class="flex items-center gap-3 px-4 py-2 rounded-full cursor-pointer transition-all hover:scale-105"
+           style="background: #EFF6FF; border: 1px solid #BFDBFE;">
+        <span class="relative flex h-2.5 w-2.5">
+          <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
+          <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-blue-500"></span>
+        </span>
+        <span class="text-[12px] font-bold text-blue-700">Scraping 'Gyms in Miami'</span>
+        <div class="w-20 h-1.5 rounded-full overflow-hidden bg-blue-200">
+          <div class="h-full rounded-full bg-blue-500" style="width: 45%;"></div>
+        </div>
+        <span class="text-[11px] font-bold text-blue-600 tabular-nums">45%</span>
+      </div>
+
+      <!-- Right: Actions & Profile -->
+      <div class="flex items-center gap-4">
+        <!-- Notification Bell -->
+        <button class="relative p-2 rounded-full hover:bg-slate-100 text-slate-500 transition-colors">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/></svg>
+          <span class="absolute top-1.5 right-2 w-2 h-2 bg-red-500 border-2 border-white rounded-full"></span>
+        </button>
+
+        <!-- Profile Menu -->
+        <div class="flex items-center gap-3 pl-3 border-l border-slate-200">
+          <div class="text-right hidden sm:block">
+            <p class="text-[13px] font-bold text-slate-800 leading-none">Cyprien</p>
+            <p class="text-[11px] text-emerald-600 font-bold leading-none mt-1">Pro Plan</p>
+          </div>
+          <div class="w-9 h-9 rounded-xl flex items-center justify-center text-white text-xs font-bold shadow-md cursor-pointer hover:opacity-90 transition-opacity"
+               style="background: linear-gradient(135deg, #8B5CF6, #6D28D9);">
+            CY
+          </div>
+        </div>
+      </div>
+    </header>
+
+
+    <!-- Main Scrollable Area -->
+    <main class="flex-1 overflow-auto p-8">
+      
+      {% if messages %}
+        {% for message in messages %}
+          <div class="mb-6 px-4 py-3 rounded-xl text-sm font-bold shadow-sm flex items-center gap-3
+            {% if message.tags == 'error' %}bg-rose-50 border border-rose-100 text-rose-600
+            {% else %}bg-emerald-50 border border-emerald-100 text-emerald-700{% endif %}">
+            {% if message.tags == 'error' %}
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+            {% else %}
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            {% endif %}
+            {{ message }}
+          </div>
+        {% endfor %}
+      {% endif %}
+
+      <!-- Page Title & Tabs -->
+      <div class="flex items-end justify-between mb-6">
+        <div>
+          <h1 class="text-2xl font-bold text-slate-900 tracking-tight">My Prospects</h1>
+          <p class="text-sm text-slate-500 mt-1">Manage, grade, and enrich your leads before outreach.</p>
+        </div>
+        
+        <!-- Tabs -->
+        <div class="flex items-center gap-1 p-1 rounded-xl bg-white border border-slate-200 shadow-sm">
+          <button class="px-4 py-1.5 rounded-lg text-[12px] font-bold bg-slate-900 text-white shadow-sm transition-all">
+            All <span class="ml-1 opacity-60">128</span>
+          </button>
+          <button class="px-4 py-1.5 rounded-lg text-[12px] font-bold text-slate-500 hover:text-slate-700 hover:bg-slate-50 transition-all">
+            New
+          </button>
+          <button class="px-4 py-1.5 rounded-lg text-[12px] font-bold text-slate-500 hover:text-slate-700 hover:bg-slate-50 transition-all">
+            Contacted <span class="ml-1 bg-slate-100 px-1.5 rounded-full text-slate-400">12</span>
+          </button>
+          <button class="px-4 py-1.5 rounded-lg text-[12px] font-bold text-slate-500 hover:text-slate-700 hover:bg-slate-50 transition-all">
+            Won
+          </button>
+        </div>
+      </div>
+
+      <!-- Controls & Filters -->
+      <div class="flex items-center gap-3 mb-5">
+        <!-- Search -->
+        <div class="relative w-72">
+          <svg class="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+          <input type="text" placeholder="Search companies, contacts..." 
+                 class="w-full pl-9 pr-4 py-2.5 text-[13px] bg-white border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-emerald-400/40 focus:border-emerald-400 placeholder-slate-400 text-slate-700 shadow-sm transition-all">
+        </div>
+
+        <!-- Filter Btn -->
+        <button class="flex items-center gap-2 px-4 py-2.5 bg-white border border-slate-200 rounded-xl text-[12px] font-bold text-slate-600 hover:bg-slate-50 shadow-sm transition-all">
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" x2="20" y1="21" y2="21"/><line x1="20" x2="4" y1="3" y2="3"/><line x1="4" x2="20" y1="12" y2="12"/><circle cx="8" cy="12" r="3"/><circle cx="16" cy="3" r="3"/><circle cx="12" cy="21" r="3"/></svg>
+          Filters
+        </button>
+
+        <!-- Deep Enrich Btn (Premium Feature) -->
+        <button class="flex items-center gap-2 px-4 py-2.5 bg-white border border-slate-200 rounded-xl text-[12px] font-bold text-slate-600 hover:bg-slate-50 shadow-sm transition-all group">
+          <svg class="text-indigo-500 group-hover:scale-110 transition-transform" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>
+          Deep Enrich
+        </button>
+
+        <!-- Export (Right Aligned) -->
+        <div class="ml-auto flex items-center gap-3">
+          <span class="text-[12px] text-slate-400 font-medium tabular-nums">128 leads found</span>
+          <button class="flex items-center gap-2 px-4 py-2.5 bg-white border border-slate-200 rounded-xl text-[12px] font-bold text-slate-600 hover:bg-slate-50 shadow-sm transition-all">
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" x2="12" y1="15" y2="3"/></svg>
+            Export CSV
+          </button>
+        </div>
+      </div>
+
+      <!-- THE TABLE -->
+      <div class="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden mb-12">
+        <div class="overflow-x-auto">
+          <table class="w-full text-left border-collapse">
+            <thead>
+              <tr class="bg-slate-50/50 border-b border-slate-200">
+                <th class="px-5 py-3 w-10"><input type="checkbox" class="rounded border-slate-300 accent-emerald-500 cursor-pointer"></th>
+                <th class="px-5 py-3 text-[10px] font-bold text-slate-400 uppercase tracking-wider">Company</th>
+                <th class="px-5 py-3 text-[10px] font-bold text-slate-400 uppercase tracking-wider">Contact</th>
+                <th class="px-5 py-3 text-[10px] font-bold text-slate-400 uppercase tracking-wider">Lead Grade</th>
+                <th class="px-5 py-3 text-[10px] font-bold text-slate-400 uppercase tracking-wider">Tech Stack</th>
+                <th class="px-5 py-3 text-[10px] font-bold text-slate-400 uppercase tracking-wider">Status</th>
+                <th class="px-5 py-3 text-[10px] font-bold text-slate-400 uppercase tracking-wider">Actions</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-slate-50">
+              
+              <!-- ROW 1 -->
+              <tr class="hover:bg-slate-50/80 transition-colors group">
+                <td class="px-5 py-4"><input type="checkbox" class="rounded border-slate-300 accent-emerald-500 cursor-pointer"></td>
+                <td class="px-5 py-4">
+                  <div class="flex items-center gap-3">
+                    <div class="w-9 h-9 rounded-lg bg-slate-100 border border-slate-200 flex items-center justify-center font-bold text-slate-500 text-xs">AF</div>
+                    <div>
+                      <p class="font-bold text-slate-900 text-[13px] leading-tight">Apex Fitness Co.</p>
+                      <a href="#" class="text-[11px] text-slate-400 hover:text-emerald-600 transition-colors flex items-center gap-1 mt-0.5">
+                        apexfitness.com <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" x2="21" y1="14" y2="3"/></svg>
+                      </a>
+                    </div>
+                  </div>
+                </td>
+                <td class="px-5 py-4">
+                  <p class="font-semibold text-slate-800 text-[13px]">Jordan Mills</p>
+                  <p class="text-[11px] text-slate-500">Marketing Director</p>
+                </td>
+                <td class="px-5 py-4">
+                  <!-- Grade: Bullseye -->
+                  <div class="flex items-center gap-2">
+                    <div class="relative w-5 h-5 flex-shrink-0">
+                      <div class="absolute inset-0 rounded-full border-2 border-emerald-400 opacity-25"></div>
+                      <div class="absolute inset-[3px] rounded-full border border-emerald-500 opacity-55"></div>
+                      <div class="absolute inset-[7px] rounded-full bg-emerald-500"></div>
+                    </div>
+                    <span class="inline-flex items-center gap-1 text-[11px] font-bold px-2 py-0.5 rounded-full bg-emerald-50 text-emerald-700 border border-emerald-200">
+                      Bullseye 92%
+                    </span>
+                  </div>
+                </td>
+                <td class="px-5 py-4">
+                  <div class="flex items-center gap-1 flex-wrap">
+                    <span class="text-[10px] px-1.5 py-0.5 rounded-md font-bold bg-[#EBF9DC] text-[#3B7A1A]">Shopify</span>
+                    <span class="text-[10px] px-1.5 py-0.5 rounded-md font-bold bg-[#FEF3C7] text-[#92400E]">Klaviyo</span>
+                  </div>
+                </td>
+                <td class="px-5 py-4">
+                  <button class="flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[11px] font-bold border transition-all hover:shadow-sm bg-blue-50 text-blue-700 border-blue-200">
+                    <span class="w-1.5 h-1.5 rounded-full flex-shrink-0 bg-blue-400"></span> New
+                  </button>
+                </td>
+                <td class="px-5 py-4">
+                  <div class="flex items-center gap-2 opacity-0 group-hover:opacity-100 transition-all">
+                    <button class="flex items-center gap-1.5 px-3 py-1.5 text-white text-[11px] font-bold rounded-lg transition-all hover:scale-105 shadow-md"
+                            style="background: linear-gradient(135deg, #22C55E, #16A34A);">
+                      Email
+                    </button>
+                  </div>
+                </td>
+              </tr>
+
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+    </main>
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% block title %}Pricing - Targetify{% endblock %}
+{% block content %}
+<div class="max-w-4xl mx-auto py-12">
+  <h1 class="text-4xl font-bold text-center mb-2">Simple Pricing</h1>
+  <p class="text-gray-500 text-center mb-12">No hidden fees. Cancel anytime.</p>
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+    <!-- Free -->
+    <div class="bg-white rounded-xl border p-6 flex flex-col">
+      <h2 class="text-xl font-bold mb-1">Free</h2>
+      <p class="text-3xl font-bold mb-4">€0<span class="text-sm font-normal text-gray-500">/mo</span></p>
+      <ul class="text-sm text-gray-600 space-y-2 flex-1 mb-6">
+        <li>✓ 10 leads/month</li><li>✓ 1 job at a time</li><li>✗ No CSV download</li>
+      </ul>
+      <a href="/accounts/register/" class="block text-center border border-blue-600 text-blue-600 py-2 rounded-lg hover:bg-blue-50">Get Started</a>
+    </div>
+    <!-- Starter -->
+    <div class="bg-blue-600 text-white rounded-xl border p-6 flex flex-col shadow-lg">
+      <h2 class="text-xl font-bold mb-1">Starter</h2>
+      <p class="text-3xl font-bold mb-4">€19<span class="text-sm font-normal opacity-80">/mo</span></p>
+      <ul class="text-sm space-y-2 flex-1 mb-6 opacity-90">
+        <li>✓ 500 leads/month</li><li>✓ CSV download</li><li>✓ Job history</li>
+      </ul>
+      <a href="/billing/checkout/starter_monthly/" class="block text-center bg-white text-blue-600 py-2 rounded-lg font-medium hover:bg-blue-50">Subscribe</a>
+    </div>
+    <!-- Pro -->
+    <div class="bg-white rounded-xl border p-6 flex flex-col">
+      <h2 class="text-xl font-bold mb-1">Pro</h2>
+      <p class="text-3xl font-bold mb-4">€49<span class="text-sm font-normal text-gray-500">/mo</span></p>
+      <ul class="text-sm text-gray-600 space-y-2 flex-1 mb-6">
+        <li>✓ 2000 leads/month</li><li>✓ Unlimited jobs</li><li>✓ Priority processing</li>
+      </ul>
+      <a href="/billing/checkout/pro_monthly/" class="block text-center border border-blue-600 text-blue-600 py-2 rounded-lg hover:bg-blue-50">Subscribe</a>
+    </div>
+  </div>
+</div>
+{% endblock %}
