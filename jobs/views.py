@@ -8,6 +8,7 @@ from django.utils import timezone
 from .models import Job, Lead
 from .forms import NewJobForm
 from .tasks import run_scraping_job
+from django.contrib.auth import logout
 
 def sanitize(value):
     return bleach.clean(value, tags=[], strip=True)
@@ -79,3 +80,25 @@ def download_csv(request, job_id):
 @login_required
 def profile(request):
     return render(request, "jobs/profile.html")
+
+@login_required
+def my_prospects(request):
+    leads = Lead.objects.filter(user=request.user).order_by("-created_at")
+    return render(request, "jobs/my_prospects.html", {"leads": leads})
+
+@login_required
+def lead_finder(request):
+    return render(request, "jobs/lead_finder.html")
+
+@login_required
+def campaigns(request):
+    return render(request, "jobs/campaigns.html")
+
+@login_required
+def settings(request):
+    return render(request, "jobs/settings.html")
+
+@login_required
+def logout_view(request):
+    logout(request)
+    return render(request, "")

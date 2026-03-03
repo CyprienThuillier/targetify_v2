@@ -41,6 +41,7 @@
 </head>
 <body class="bg-[#F5F7FA] text-gray-900">
 
+  {% block navbar %}
   <nav class="bg-[#000435] px-6 flex items-center font-bold shadow-lg shadow-black/20">
     {% if user.is_authenticated %}
       <a href="/accounts/logout" class="font-bold text-xl text-white flex-shrink-0">Targetify</a>
@@ -62,6 +63,7 @@
       </div>
     {% endif %}
   </nav>
+  {% endblock navbar %}
 
   {% block layout %}
   <div id="normal-container">
